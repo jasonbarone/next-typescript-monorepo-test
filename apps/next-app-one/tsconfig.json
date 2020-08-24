@@ -1,0 +1,5 @@
+{
+  "extends": "@test-monorepo/utils/tsconfig/tsconfig.web.json",
+  "exclude": ["node_modules", ".next"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}

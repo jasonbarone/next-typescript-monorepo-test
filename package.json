@@ -1,0 +1,44 @@
+{
+  "name": "next-monorepo-typescript-test",
+  "description": "A Next.js monorepo with typescript.",
+  "private": true,
+  "author": "Jason Barone <jason@jasonbarone.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonbarone/next-monorepo-typescript-test.git"
+  },
+  "license": "UNLICENSED",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "check-types": "npm run check-types:components && npm run check-types:web",
+    "check-types:components": "tsc --project tsconfig.components.json",
+    "check-types:web": "tsc --project tsconfig.web.json",
+    "format": "prettier '{apps,packages}/{**/*.js,**/*.ts,**/*.tsx}' --write --loglevel silent",
+    "lint": "eslint '{apps,packages}/{**/*.js,**/*.ts,**/*.tsx}'",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "nuke": "npm run clean && rm yarn.lock '{*,**/*,**/**/*,}/yarn.lock'",
+    "publish-canary": "lerna version prerelease --preid canary --force-publish",
+    "release": "lerna publish from-git --npm-tag canary --yes"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.0",
+    "@types/react": "^16.9.46",
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.9.1",
+    "eslint": "7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "jest": "^26.4.2",
+    "lerna": "^3.22.0",
+    "prettier": "^2.1.0",
+    "ts-jest": "^26.2.0",
+    "typescript": "^4.0.2"
+  }
+}

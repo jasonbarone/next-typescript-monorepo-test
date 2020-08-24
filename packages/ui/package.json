@@ -1,0 +1,25 @@
+{
+  "name": "@test-monorepo/ui",
+  "version": "0.1.0",
+  "description": "User interface components.",
+  "scripts": {
+    "check-types": "tsc -p ./tsconfig.components.json",
+    "format": "cd ../../ && yarn format",
+    "lint": "cd ../../ && yarn lint",
+    "test": "jest --config ../../jest.config.js"
+  },
+  "dependencies": {
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@types/react": "^16.9.46",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.0",
+    "react-dom": ">=16.13.0"
+  }
+}
